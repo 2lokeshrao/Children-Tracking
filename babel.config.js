@@ -3,8 +3,18 @@ module.exports = function(api) {
   return {
     presets: ['babel-preset-expo'],
     plugins: [
-      '@babel/plugin-proposal-export-namespace-from', // For web support
-      'react-native-worklets/plugin' // Must be last
-    ]
+      [
+        'module:react-native-dotenv',
+        {
+          moduleName: '@env',
+          path: '.env',
+          blocklist: null,
+          allowlist: null,
+          safe: false,
+          allowUndefined: true,
+        },
+      ],
+      'react-native-reanimated/plugin',
+    ],
   };
 };
