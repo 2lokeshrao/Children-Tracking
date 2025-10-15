@@ -1,46 +1,38 @@
 {
   "expo": {
-    "name": "Guardian View & Family Link",
-    "slug": "guardian-view-family-link",
+    "name": "Guardian View - Family Link",
+    "slug": "children-tracking",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "guardian-view",
-    "userInterfaceStyle": "light",
-    "newArchEnabled": false,
-    "splash": {
-      "image": "./assets/images/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
+    "scheme": "guardianview",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.guardianview.app",
+      "bundleIdentifier": "com.guardianview.familylink",
       "infoPlist": {
-        "NSLocationWhenInUseUsageDescription": "We need your location to keep you safe and help parents monitor your whereabouts.",
-        "NSLocationAlwaysAndWhenInUseUsageDescription": "We need continuous access to your location for safety monitoring, even when the app is in the background.",
-        "NSLocationAlwaysUsageDescription": "We need continuous access to your location for safety monitoring.",
+        "NSLocationWhenInUseUsageDescription": "We need your location to track your child's whereabouts for safety.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "We need your location to track your child's whereabouts for safety, even when the app is in the background.",
+        "NSLocationAlwaysUsageDescription": "We need your location to track your child's whereabouts for safety, even when the app is closed.",
         "UIBackgroundModes": ["location", "fetch", "remote-notification"]
       }
     },
     "android": {
-      "package": "com.guardianview.app",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
+      "package": "com.guardianview.familylink",
       "permissions": [
         "ACCESS_FINE_LOCATION",
         "ACCESS_COARSE_LOCATION",
         "ACCESS_BACKGROUND_LOCATION",
         "FOREGROUND_SERVICE",
-        "FOREGROUND_SERVICE_LOCATION",
-        "POST_NOTIFICATIONS",
-        "VIBRATE",
         "RECEIVE_BOOT_COMPLETED",
-        "WAKE_LOCK"
-      ],
-      "edgeToEdgeEnabled": true
+        "VIBRATE",
+        "INTERNET"
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -52,43 +44,31 @@
       [
         "expo-location",
         {
-          "locationAlwaysAndWhenInUsePermission": "Allow Guardian View to use your location for safety monitoring.",
-          "locationAlwaysPermission": "Allow Guardian View to use your location even when the app is closed for continuous safety monitoring.",
-          "locationWhenInUsePermission": "Allow Guardian View to use your location while using the app.",
-          "isAndroidBackgroundLocationEnabled": true,
-          "isAndroidForegroundServiceEnabled": true
+          "locationAlwaysAndWhenInUsePermission": "Allow Guardian View to use your location for child safety tracking.",
+          "locationAlwaysPermission": "Allow Guardian View to use your location for child safety tracking, even when the app is closed.",
+          "locationWhenInUsePermission": "Allow Guardian View to use your location for child safety tracking."
         }
       ],
       [
         "expo-notifications",
         {
           "icon": "./assets/images/notification-icon.png",
-          "color": "#1E3A8A",
-          "sounds": ["./assets/sounds/sos-alert.wav"]
-        }
-      ],
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "color": "#ffffff",
+          "sounds": ["./assets/sounds/notification.wav"]
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true
     },
-    "runtimeVersion": {
-      "policy": "sdkVersion"
-    },
     "extra": {
-      "supabaseUrl": "https://your-project.supabase.co",
-      "supabaseAnonKey": "your-anon-key-here",
+      "router": {
+        "origin": false
+      },
       "eas": {
-        "projectId": "your-eas-project-id"
+        "projectId": "your-project-id-here"
       }
-    }
+    },
+    "owner": "2lokeshrao"
   }
 }
